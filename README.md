@@ -2,6 +2,14 @@
 
 **ScholTrack** is a Python command-line tool for fetching and exporting scholarly paper citations from Semantic Scholar. It allows users to retrieve citations for a set of paper IDs and filter, sort, and export them to various formats such as CSV, JSON, and TXT. You can specify your own paper ID collections in `.txt` files and have options for sorting and displaying the results.
 
+
+## Motivation
+
+Tracking the evolution of ideas and recent developments in a field is crucial in academic research. One effective way to do this is by following specific lines of research, particularly by keeping up with papers that cite seminal work. For instance, to stay current with neural rendering research in computer vision, you might track all papers citing foundational work like Neural Radiance Fields or 3D Gaussian Splatting. Similarly, to monitor recent advances in diffusion models, you could follow papers citing Denoising Diffusion Probabilistic Models.
+
+ScholTrack enables you to do just that by efficiently gathering and organizing citation lists for specified papers. Additionally, it helps you explore intersections between fields, for example, by identifying papers that cite both DDPM and NeRF papers.
+
+
 ## Features
 
 - Fetch citations from Semantic Scholar based on a list of paper IDs.
@@ -129,7 +137,7 @@ This command will:
 ### Example 4: Display the First 10 Citations in the Terminal
 
 ```bash
-scholtrack --file collections/nerf.txt --verbose
+scholtrack --file collections/nerf.txt --verbose --sort-by arxiv
 ```
 
 This command will:
