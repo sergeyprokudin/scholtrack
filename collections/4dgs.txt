@@ -1,0 +1,3 @@
+# Collection of Semantic Scholar Paper IDs related to the Dynamic 3DGS topics
+395bfdae59f1a5fde16213cade43d2587e4565df # 4D Gaussian Splatting for Real-Time Dynamic Scene Rendering (Wu et al.)
+8ba2c82fe675ede1d5c12fc4f97cf8ca3ebf1ca3 # Dynamic 3D Gaussians: Tracking by Persistent Dynamic View Synthesis (Luton et al.)
