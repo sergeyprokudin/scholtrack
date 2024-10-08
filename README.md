@@ -3,18 +3,17 @@
 
 # ScholTrack: Effortlessly Gather, Trace, and Analyze Citations for Academic Papers
 
-**ScholTrack** is a Python command-line tool for fetching and exporting scholarly paper citations from Semantic Scholar. It allows users to retrieve citations for a set of paper IDs and filter, sort, and export them to various formats such as CSV, JSON, and TXT. Users can define paper ID collections in `.txt` files, and there are options for sorting and displaying the results.
+**ScholTrack** is a Python command-line tool for fetching and exporting scholarly paper citations from [Semantic Scholar](https://www.semanticscholar.org/). It allows users to retrieve citations for a set of paper IDs and filter, sort, and export them to various formats such as CSV, JSON, and TXT. Users can define paper ID collections in `.txt` files, and there are options for sorting and displaying the results.
 
 ## Motivation
 
-Tracking the evolution of ideas and recent developments in a field is crucial in academic research. One effective way to do this is by following specific lines of research, particularly by keeping up with papers that cite certain seminal work. For instance, to stay current with neural rendering research in computer vision, you might track all papers citing foundational work like Neural Radiance Fields or 3D Gaussian Splatting. Similarly, to monitor recent advances in diffusion models, you could follow papers citing Denoising Diffusion Probabilistic Models.
+Tracking the evolution of ideas and recent developments in a field is crucial in academic research. One effective way to do this is by following specific lines of research, particularly by **keeping up with papers that cite certain seminal works**. For instance, to stay current with neural rendering research in computer vision, you might want track all papers citing foundational work like Neural Radiance Fields or 3D Gaussian Splatting. Similarly, to monitor recent advances in diffusion models, you could follow papers citing Denoising Diffusion Probabilistic Models.
 
-ScholTrack enables you to do just that by efficiently gathering and organizing citation lists for specified papers. Additionally, it helps you explore intersections between fields, for example, by identifying papers that cite both DDPM and NeRF papers.
+ScholTrack enables you to do just that by efficiently gathering and organizing citation lists for specified papers. Additionally, it helps you explore intersections between fields, for example, by identifying papers that cite several seminal papers from different fields.
 
 ## Features
 
 - Fetch citations from Semantic Scholar based on a list of paper IDs.
-- **Optional API Key**: Access additional data by providing an API key. Without an API key, basic functionality is still available.
 - Filter citing papers by how many source papers they reference (`cites-at-least-n` option).
 - Export citations to various formats:
   - CSV
@@ -101,7 +100,7 @@ scholtrack --paper-ids <list-of-paper-ids> [options]
 ### Example 1: Fetch Citations for Multiple Paper IDs and Export to CSV
 
 ```bash
-scholtrack --paper-ids 11665dbecb17ef4d3d71b75b8666ce0e61bd43fa a57debf768b0454e60c97d16d1cf80e9b3ae8a55 --output-type csv --output my_citations.csv --api-key YOUR_API_KEY
+scholtrack --paper-ids 11665dbecb17ef4d3d71b75b8666ce0e61bd43fa a57debf768b0454e60c97d16d1cf80e9b3ae8a55 --output-type csv --output my_citations.csv
 ```
 
 This command will:
@@ -109,15 +108,15 @@ This command will:
 - Sort the citations by the default field (citation count).
 - Save the results to `my_citations.csv`.
 
-### Example 2: Fetch and Display Citations for Paper IDs list from a File, Sorted by Year
+### Example 2: Fetch and Display Citations for Paper IDs list from a File, Sorted by Arxiv Appearance
 
 ```bash
-scholtrack --file collections/nerf.txt --sort-by year --output-type stdout
+scholtrack --file collections/nerf.txt --sort-by arxiv --output-type stdout
 ```
 
 This command will:
 - Fetch citations for the paper IDs in the `collections/nerf.txt` file.
-- Sort the citations by year.
+- Sort the citations according to their Arxiv IDs.
 - Display the results directly in the terminal (stdout).
 
 ### Example 3: Fetch Citations and Save to TXT, Skipping Abstracts
@@ -131,41 +130,26 @@ This command will:
 - Skip the abstract field when saving to `citations.txt`.
 - Save the results in a human-readable format to `citations.txt`.
 
-### Example 4: Fetch Citations for Papers in the "nerf" Collection
+### Example 4: Fetch Citations for Papers in the "nerf" Collection, Taking Papers which Cite at Least Two of The Seminal Works
 
 ```bash
-scholtrack -c nerf -n 2 -t stdout
+scholtrack -c nerf -o nerf_collection_two.csv -n 2 -t csv
 ```
 
 This command will:
 - Fetch citations for papers in the "nerf" collection.
 - Only display papers that cite at least 2 papers from the list.
 
-### Example 5: Display the First 10 Citations in the Terminal, Including Abstracts
+### Example 5: Display the Latest 10 Citations in the Terminal, Including Abstracts
 
 ```bash
-scholtrack --file collections/nerf.txt --verbose --show-abstract --sort-by arxiv
+scholtrack -c nerf --show-abstract --sort-by arxiv
 ```
 
 This command will:
 - Fetch the paper IDs from `collections/nerf.txt`.
 - Display the first 10 citations directly in the terminal, including abstracts.
 
-## Folder Structure
-
-Here’s the recommended folder structure for the repository:
-
-```bash
-scholtrack/
-├── collections/               # Pre-set collections of paper IDs
-│   ├── nerf.txt
-├── scholtrack/
-│   ├── api.py                 # Handles interactions with the Semantic Scholar API
-│   ├── exporter.py            # Handles export functions (CSV, TXT, JSON, stdout)
-│   ├── cli.py                 # Command-line interface definitions
-├── README.md                  # This file
-└── setup.py                   # Installation setup
-```
 
 ### Example Paper ID Collection File: `collections/nerf.txt`
 
