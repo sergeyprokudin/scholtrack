@@ -16,12 +16,6 @@ setup(
         'console_scripts': [
         'scholtrack=scholtrack.cli:main',
         ],
-    },
-    classifiers=[
-        'Programming Language :: Python :: 3',
-        'License :: OSI Approved :: Apache 2.0 License',
-        'Operating System :: OS Independent',
-    ],
-    python_requires='>=3.6',
+    }
 )
 
