@@ -14,7 +14,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'scholtrack=scholtrack.cli:main',
+        'scholtrack=scholtrack.cli:main',
         ],
     },
     classifiers=[
