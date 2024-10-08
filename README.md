@@ -1,31 +1,40 @@
 ![scholtrack](https://github.com/user-attachments/assets/368377a3-c43b-4d59-a656-0f70f9d3f329)
 
-
 # ScholTrack: Effortlessly Gather, Trace, and Analyze Citations for Academic Papers
 
-**ScholTrack** is a Python command-line tool for fetching and exporting scholarly paper citations from [Semantic Scholar](https://www.semanticscholar.org/). It allows users to retrieve citations for a set of paper IDs and filter, sort, and export them to various formats such as CSV, JSON, and TXT. Users can define paper ID collections in `.txt` files, and there are options for sorting and displaying the results.
+**ScholTrack** is a Python command-line tool that helps researchers retrieve, organize, and export scholarly paper citations from [Semantic Scholar](https://www.semanticscholar.org/). Whether you need to track citations for specific papers or monitor the evolution of ideas across research fields, ScholTrack makes it easy to fetch, filter, and export citation data. You can work with individual papers or collections of key papers in your field.
 
 ## Motivation
 
-Tracking the evolution of ideas and recent developments in a field is crucial in academic research. One effective way to do this is by following specific lines of research, particularly by **keeping up with papers that cite certain seminal works**. For instance, to stay current with neural rendering research in computer vision, you might want track all papers citing foundational work like Neural Radiance Fields or 3D Gaussian Splatting. Similarly, to monitor recent advances in diffusion models, you could follow papers citing Denoising Diffusion Probabilistic Models.
+Tracking the evolution of ideas and staying up to date with developments in your research field is crucial for academic success. Often, this involves keeping an eye on papers that cite certain **seminal works**. For example, to follow the latest progress in **neural rendering** research, you might track papers citing foundational works like Neural Radiance Fields (NeRF) or 3D Gaussian Splatting. Similarly, to stay on top of advances in **diffusion models**, you could follow papers citing Denoising Diffusion Probabilistic Models (DDPM).
 
-ScholTrack enables you to do just that by efficiently gathering and organizing citation lists for specified papers. Additionally, it helps you explore intersections between fields, for example, by identifying papers that cite several seminal papers from different fields.
+ScholTrack enables you to do this seamlessly by gathering and organizing citation lists for specified papers. Furthermore, it allows you to explore intersections between fields, for example, by identifying papers that cite multiple seminal papers across different domains.
+
+## The "Collection" Feature
+
+Instead of tracking citations for a single paper, ScholTrack allows you to define and manage **collections** of paper IDs. These collections can represent the most influential works in a specific research area. By using collections, you can:
+- Fetch all citations to multiple seminal works in one go.
+- Share and extend paper collections with collaborators.
+- Monitor broader developments in your field by tracking a group of influential papers.
+
+Collections are stored as simple `.txt` files, making them easy to create, update, and share.
 
 ## Features
 
-- Fetch citations from Semantic Scholar based on a list of paper IDs.
-- Filter citing papers by how many source papers they reference (`cites-at-least-n` option).
+- Fetch citations from Semantic Scholar based on one or more paper IDs.
+- Define and track **collections** of papers.
+- Filter citing papers by how many source papers they reference (`--cites-at-least-n`).
 - Export citations to various formats:
   - CSV
   - JSON
   - Human-readable TXT
   - Display directly in the terminal (stdout)
-- Options to skip fields like abstract in the output.
-- Sort citations by citation count, ArXiv ID, or year.
+- Skip fields like abstract in the output (`--skip-abstract`).
+- Sort citations by citation count, ArXiv ID, or year (`--sort-by`).
 
 ## Installation
 
-Clone and install the repository:
+To get started, clone and install the repository:
 
 ```bash
 git clone https://github.com/sergeyprokudin/scholtrack.git
@@ -33,30 +42,30 @@ cd scholtrack
 pip install -e .
 ```
 
-You can optionally use a **Semantic Scholar API Key** to get enhanced data. You can get one by signing up at [Semantic Scholar API](https://www.semanticscholar.org/product/api). Using an API key may increase rate limits and access to additional data.
+For enhanced functionality, you can use a **Semantic Scholar API Key**. This provides access to additional data and may improve rate limits. Get your API key from [Semantic Scholar API](https://www.semanticscholar.org/product/api).
 
 ## Getting Paper IDs
 
-In order to use ScholTrack, you need the Semantic Scholar Paper ID for the papers of interest. Here’s how you can get the paper ID using the Semantic Scholar website:
+ScholTrack uses **Semantic Scholar Paper IDs** to retrieve citations. You can find these IDs using the Semantic Scholar website:
 
-1. Go to [Semantic Scholar](https://www.semanticscholar.org/).
-2. Use the search bar to find the paper by entering the title or keywords.
-3. Click on the appropriate search result to open the paper details page.
-4. Look at the URL of the paper details page. It will be in the format:
+1. Visit [Semantic Scholar](https://www.semanticscholar.org/).
+2. Search for a paper by its title or keywords.
+3. Click on the paper in the search results.
+4. Look at the URL in your browser's address bar. It will be in the format:
 
    ```
    https://www.semanticscholar.org/paper/{Title}/{Paper-ID}
    ```
 
-   For example, for the paper titled *"NeRF: Representing Scenes as Neural Radiance Fields"*, the URL might look like:
+   Example for *"NeRF: Representing Scenes as Neural Radiance Fields"*:
 
    ```
    https://www.semanticscholar.org/paper/NeRF-Mildenhall-Srinivasan/428b663772dba998f5dc6a24488fff1858a0899f
    ```
 
-5. The **Paper ID** is the string at the end of the URL: `428b663772dba998f5dc6a24488fff1858a0899f`.
+5. The **Paper ID** is the string after the last slash: `428b663772dba998f5dc6a24488fff1858a0899f`.
 
-This **Paper ID** is what you need to use with ScholTrack to fetch citations.
+Use this Paper ID in ScholTrack to fetch citations.
 
 ## Usage
 
@@ -70,30 +79,30 @@ scholtrack --paper-ids <list-of-paper-ids> [options]
 
 #### Input Options
 
-- `--paper-ids <list-of-paper-ids>`: Provide a space-separated list of paper IDs to fetch citations for.
-- `--file <path-to-txt-file>`: Provide a text file with paper IDs and optional comments (after `#`).
-- `--collection <collection-name>`: Use pre-set collections of paper IDs from the `collections/` folder.
+- `--paper-ids <list-of-paper-ids>`: Space-separated list of paper IDs to fetch citations for.
+- `--file <path-to-txt-file>`: Path to a text file with paper IDs (one per line).
+- `--collection <collection-name>`: Use a collection of paper IDs from the `collections/` folder.
 
 #### Output Options
 
-- `--output-type <stdout|csv|json|txt>`: Specify the output format (default: `csv`).
-- `--output <file-name>`: Specify the output file name (default: `citations.csv` for CSV).
-- `--skip-abstract`: Skip the abstract field when saving to TXT or displaying in stdout.
-- `--sort-by <citations|arxiv|year>`: Sort the results by citation count, ArXiv ID, or year (default: `citations`).
-- `--show-abstract`: Display or include the abstract field in the output.
-- `--quiet`: Omit displaying the first N results in the terminal (useful for large lists).
+- `--output-type <stdout|csv|json|txt>`: Output format (default: `csv`).
+- `--output <file-name>`: Specify the output file name (default: `citations.csv`).
+- `--skip-abstract`: Skip the abstract field in TXT or terminal output.
+- `--sort-by <citations|arxiv|year>`: Sort results by citation count, ArXiv ID, or year (default: `citations`).
+- `--show-abstract`: Include the abstract field in the output.
+- `--quiet`: Suppress terminal output of citations.
 
 #### Filtering Options
 
-- `--cites-at-least-n <number>`: Only include citing papers that reference at least `n` papers from the provided list.
-
-#### API Key
-
-- `--api-key <your-api-key>`: Specify your Semantic Scholar API key for fetching citation data. **This is optional**; if not provided, ScholTrack will still function with basic features.
+- `--cites-at-least-n <number>`: Include only papers that reference at least `n` of the input papers.
 
 #### Other Options
 
-- `--display-limit <number>`: Maximum number of papers to show in the terminal (default: 5).
+- `--display-limit <number>`: Maximum number of citations to display in the terminal (default: 5).
+
+#### API Key
+
+- `--api-key <your-api-key>`: Specify your Semantic Scholar API key for fetching citation data. **Optional** — ScholTrack will work without it but may have lower rate limits.
 
 ## Examples
 
@@ -103,21 +112,15 @@ scholtrack --paper-ids <list-of-paper-ids> [options]
 scholtrack --paper-ids 11665dbecb17ef4d3d71b75b8666ce0e61bd43fa a57debf768b0454e60c97d16d1cf80e9b3ae8a55 --output-type csv --output my_citations.csv
 ```
 
-This command will:
-- Fetch the citations for the provided paper IDs.
-- Sort the citations by the default field (citation count).
-- Save the results to `my_citations.csv`.
+This command fetches citations for the provided paper IDs, sorts them by citation count, and saves the results to `my_citations.csv`.
 
-### Example 2: Fetch and Display Citations for Paper IDs list from a File, Sorted by Arxiv Appearance
+### Example 2: Fetch and Display Citations from a File, Sorted by ArXiv ID
 
 ```bash
 scholtrack --file collections/nerf.txt --sort-by arxiv --output-type stdout
 ```
 
-This command will:
-- Fetch citations for the paper IDs in the `collections/nerf.txt` file.
-- Sort the citations according to their Arxiv IDs.
-- Display the results directly in the terminal (stdout).
+This command fetches citations for papers listed in `collections/nerf.txt`, sorts them by ArXiv ID, and displays the results in the terminal.
 
 ### Example 3: Fetch Citations and Save to TXT, Skipping Abstracts
 
@@ -125,44 +128,28 @@ This command will:
 scholtrack --file collections/nerf.txt --output-type txt --output citations.txt --skip-abstract
 ```
 
-This command will:
-- Fetch the paper IDs from `collections/nerf.txt`.
-- Skip the abstract field when saving to `citations.txt`.
-- Save the results in a human-readable format to `citations.txt`.
+This command fetches citations, skips the abstract field, and saves the results in a human-readable format to `citations.txt`.
 
-### Example 4: Fetch Citations for Papers in the "nerf" Collection, Taking Papers which Cite at Least Two of The Seminal Works
+### Example 4: Fetch Citations for Papers in the "nerf" Collection, Displaying Papers that Cite at Least 2 Works
 
 ```bash
-scholtrack -c nerf -o nerf_collection_two.csv -n 2 -t csv
+scholtrack -c nerf -o nerf_citations.csv -n 2 -t csv
 ```
 
-This command will:
-- Fetch citations for papers in the "nerf" collection.
-- Only display papers that cite at least 2 papers from the list.
-
-### Example 5: Display the Latest 10 Citations in the Terminal, Including Abstracts
-
-```bash
-scholtrack -c nerf --show-abstract --sort-by arxiv
-```
-
-This command will:
-- Fetch the paper IDs from `collections/nerf.txt`.
-- Display the first 10 citations directly in the terminal, including abstracts.
-
+This command fetches citations for the "nerf" collection and only includes papers that cite at least two of the works from the collection.
 
 ### Example Paper ID Collection File: `collections/nerf.txt`
 
 ```txt
-# Collection of Semantic Scholar Paper IDs related to the Neural Rendering, NeRF and 3DGS topics
-428b663772dba998f5dc6a24488fff1858a0899f # Nerf: Representing scenes as neural radiance fields for view synthesis 
-21336e57dc2ab9ae2171a0f6c35f7d1aba584796 # Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields
-2cc1d857e86d5152ba7fe6a8355c2a0150cc280a # 3D Gaussian Splatting for Real-Time Radiance Field Rendering
+# Collection of Semantic Scholar Paper IDs related to Neural Rendering, NeRF, and 3DGS
+428b663772dba998f5dc6a24488fff1858a0899f # NeRF: Representing scenes as neural radiance fields
+21336e57dc2ab9ae2171a0f6c35f7d1aba584796 # Mip-NeRF: A multiscale representation for anti-aliasing neural radiance fields
+2cc1d857e86d5152ba7fe6a8355c2a0150cc280a # 3D Gaussian Splatting for real-time radiance field rendering
 ```
 
 ## Development
 
-To work on this project, you can create your own branches and implement new features or bug fixes. After making changes, you can reinstall the package in development mode:
+To contribute to ScholTrack, feel free to fork the repository, implement new features or bug fixes, and submit pull requests. After making changes, you can reinstall the package in development mode:
 
 ```bash
 pip install -e .
@@ -170,12 +157,12 @@ pip install -e .
 
 ## License
 
-This project is licensed under the Apache License 2.0. See the `LICENSE` file for details.
+This project is licensed under the **Apache License 2.0**. See the `LICENSE` file for more information.
 
 ## Contributions
 
-Feel free to contribute by creating pull requests, opening issues, or suggesting new features. Your feedback is appreciated!
+Contributions are welcome! Feel free to submit pull requests, report issues, or suggest new features.
 
 ## Acknowledgments
 
-This tool uses the [Semantic Scholar API](https://www.semanticscholar.org/product/api) to retrieve scholarly citation data. Special thanks to the Semantic Scholar team for providing this service.
+This tool leverages the [Semantic Scholar API](https://www.semanticscholar.org/product/api) to fetch scholarly citation data. Special thanks to the Semantic Scholar team for providing this valuable service.
