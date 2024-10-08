@@ -184,7 +184,7 @@ def main():
             CitationExporter.display_citations(citations, sort_by=args.sort_by, limit=args.display_limit, show_abstract=args.show_abstract)
 
         # Display additional results in the terminal if quiet mode is not enabled
-        if not args.quiet and args.output_type == 'stdout':
+        if not args.quiet:
             CitationExporter.display_citations(citations, sort_by=args.sort_by, limit=args.display_limit, show_abstract=args.show_abstract)
             print(f"\nAll done, found {len(citations)} citations. Showing {args.display_limit} results.")
 
