@@ -46,6 +46,39 @@ def extract_paper_id(url: str) -> str:
     else:
         return ""
 
+
+def load_collection_file(collection_name):
+    """
+    Load a collection of paper IDs from a file, ignoring comments after '#'.
+
+    Args:
+        collection_name (str): The name of the collection (without the .txt extension).
+
+    Returns:
+        List[str]: A list of paper IDs.
+    """
+    try:
+        # Load the file using pkg_resources to ensure it's accessible within the package
+        collection_file = pkg_resources.resource_filename('scholtrack', f'collections/{collection_name}.txt')
+
+        paper_ids = []
+        with open(collection_file, 'r') as f:
+            for line in f:
+                # Remove comments after '#' and strip leading/trailing whitespaces
+                line = line.split('#')[0].strip()
+
+                # Validate that the line contains a paper ID (should match Semantic Scholar ID format)
+                if re.match(r'^[a-f0-9]{40}$', line):
+                    paper_ids.append(line)
+
+        if not paper_ids:
+            print(f"Warning: No valid paper IDs found in {collection_name}.txt.")
+        return paper_ids
+
+    except FileNotFoundError:
+        print(f"Error: Collection file {collection_name}.txt not found.")
+        return []
+    
 def main():
     print_header()
 

@@ -19,6 +19,7 @@ ScholTrack enables you to do this seamlessly by _**gathering and organizing cita
 The simplest way to explore ScholTrack is by running the following command:
 
 ```bash
+pip install git+https://github.com/sergeyprokudin/scholtrack.git
 scholtrack -c nerf -o nerf_citations.csv
 ```
 
