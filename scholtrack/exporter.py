@@ -20,7 +20,7 @@ class CitationExporter:
             json.dump(data, f, indent=4)
 
     @staticmethod
-    def save_to_csv(citations: List[Dict[str, Any]], filename: str = "citations.csv", sort_by: str = "citation_count") -> None:
+    def save_to_csv(citations: List[Dict[str, Any]], filename: str = "citations.csv", sort_by: str = "citations") -> None:
         """
         Save citations to a CSV file.
 
@@ -29,7 +29,7 @@ class CitationExporter:
             filename (str): The name of the CSV file.
             sort_by (str): The field by which to sort the citations (citation_count, year, or arxiv).
         """
-        valid_sort_options = {"citation_count", "year", "arxiv"}
+        valid_sort_options = {"citations", "year", "arxiv"}
         if sort_by not in valid_sort_options:
             raise ValueError(f"Invalid sort option. Please use one of {valid_sort_options}")
 
@@ -73,7 +73,7 @@ class CitationExporter:
             Any: The value to be used for sorting.
         """
         citing_paper = citation.get("citingPaper", {})
-        if sort_by == "citation_count":
+        if sort_by == "citations":
             return citing_paper.get("citationCount", 0) or 0
         elif sort_by == "year":
             return citing_paper.get("year", 0) or 0
@@ -82,7 +82,7 @@ class CitationExporter:
         return 0
 
     @staticmethod
-    def save_to_txt(citations: List[Dict[str, Any]], filename: str = "citations.txt", sort_by: str = "citation_count", skip_abstract: bool = False) -> None:
+    def save_to_txt(citations: List[Dict[str, Any]], filename: str = "citations.txt", sort_by: str = "citations", show_abstract: bool = False) -> None:
         """
         Save citations to a human-readable text file, sorted by the specified field, with an option to skip abstracts.
         """
@@ -105,19 +105,23 @@ class CitationExporter:
                 txtfile.write(f"Authors: {author_list}\n")
                 txtfile.write(f"Citation Count: {citation_count}\n")
                 txtfile.write(f"Year: {year}\n")
-                if not skip_abstract:
+                if show_abstract:
                     txtfile.write(f"Abstract: {abstract}\n")
                 txtfile.write(f"Venue: {venue}\n")
                 txtfile.write(f"ArXiv URL: {arxiv_url}\n")
                 txtfile.write(f"Semantic Scholar URL: {semantic_scholar_url}\n\n")
 
     @staticmethod
-    def display_citations(citations: List[Dict[str, Any]], sort_by: str = "citation_count", limit: int = 10, skip_abstract: bool = False) -> None:
+    def display_citations(citations: List[Dict[str, Any]], sort_by: str = "citations", limit: int = 10, show_abstract: bool = False) -> None:
         """
         Display the top `limit` citations in a human-readable format, sorted by the specified field, with an option to skip abstracts.
         """
         citations_sorted = sorted(citations, key=lambda x: CitationExporter.get_sort_value(x, sort_by), reverse=True)
-        for citation in citations_sorted[:limit]:
+
+        # Display a header indicating how many results will be shown
+        print(f"\nShowing top {min(limit, len(citations))} out of {len(citations)} citations:\n")
+
+        for idx, citation in enumerate(citations_sorted[:limit], start=1):
             citing_paper = citation.get("citingPaper", {})
             title = citing_paper.get("title", "N/A")
             authors = citing_paper.get("authors", [])
@@ -130,12 +134,13 @@ class CitationExporter:
             arxiv_url = f"https://arxiv.org/abs/{external_ids.get('ArXiv', '')}" if external_ids.get("ArXiv") else "N/A"
             semantic_scholar_url = citing_paper.get("url", "N/A")
 
-            print(f"Title: {title}")
-            print(f"Authors: {author_list}")
-            print(f"Citation Count: {citation_count}")
-            print(f"Year: {year}")
-            if not skip_abstract:
-                print(f"Abstract: {abstract}")
-            print(f"Venue: {venue}")
-            print(f"ArXiv URL: {arxiv_url}")
-            print(f"Semantic Scholar URL: {semantic_scholar_url}\n")
+            # Print the enumerated citation result
+            print(f"{idx}. Title: {title}")
+            print(f"   Authors: {author_list}")
+            print(f"   Citation Count: {citation_count}")
+            print(f"   Year: {year}")
+            if show_abstract:
+                print(f"   Abstract: {abstract}")
+            print(f"   Venue: {venue}")
+            print(f"   ArXiv URL: {arxiv_url}")
+            print(f"   Semantic Scholar URL: {semantic_scholar_url}\n")
