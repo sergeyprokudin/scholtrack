@@ -2,6 +2,11 @@
 
 # ScholTrack: Track, Collect, and Analyze Academic Paper Citations
 
+[![Open Demo in Colab (Widget, No Code)](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Widget_Demo.ipynb)<br> 
+
+[![Open Demo in Colab (Command-Line Tool)](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Command_Line_Demo.ipynb)<br> 
+
+
 **ScholTrack** is a Python command-line tool that helps researchers retrieve, organize, and export scholarly paper citations from [Semantic Scholar](https://www.semanticscholar.org/). Whether you need to track citations for specific papers or monitor the evolution of ideas across research fields, ScholTrack makes it easy to fetch, filter, and export citation data. You can work with individual papers or collections of key papers in your field.
 
 ## Motivation
@@ -109,7 +114,7 @@ scholtrack --paper-ids <list-of-paper-ids> [options]
 ### Example 1: Fetch Citations for Multiple Paper IDs and Export to CSV
 
 ```bash
-scholtrack --paper-ids 11665dbecb17ef4d3d71b75b8666ce0e61bd43fa a57debf768b0454e60c97d16d1cf80e9b3ae8a55 --output-type csv --output my_citations.csv
+scholtrack --paper-ids 11665dbecb17ef4d3d71b75b8666ce0e61bd43fa --output-type csv --output my_citations.csv
 ```
 
 This command fetches citations for the provided paper IDs, sorts them by citation count, and saves the results to `my_citations.csv`.
@@ -142,9 +147,9 @@ This command fetches citations for the "nerf" collection and only includes paper
 
 ```txt
 # Collection of Semantic Scholar Paper IDs related to Neural Rendering, NeRF, and 3DGS
-428b663772dba998f5dc6a24488fff1858a0899f # NeRF: Representing scenes as neural radiance fields
-21336e57dc2ab9ae2171a0f6c35f7d1aba584796 # Mip-NeRF: A multiscale representation for anti-aliasing neural radiance fields
-2cc1d857e86d5152ba7fe6a8355c2a0150cc280a # 3D Gaussian Splatting for real-time radiance field rendering
+428b663772dba998f5dc6a24488fff1858a0899f # Nerf: Representing scenes as neural radiance fields for view synthesis 
+21336e57dc2ab9ae2171a0f6c35f7d1aba584796 # Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields
+2cc1d857e86d5152ba7fe6a8355c2a0150cc280a # 3D Gaussian Splatting for Real-Time Radiance Field Rendering
 ```
 
 ## Development
