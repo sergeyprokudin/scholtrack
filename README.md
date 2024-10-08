@@ -11,7 +11,14 @@
 
 Tracking the evolution of ideas and staying up to date with developments in your research field is crucial for academic success. Often, this involves keeping an eye on papers that cite certain **seminal works**. For example, to follow the latest progress in neural rendering research, you might track papers citing foundational works like Neural Radiance Fields (NeRF) or 3D Gaussian Splatting. Similarly, to stay on top of advances in diffusion models, you could follow papers citing Denoising Diffusion Probabilistic Models (DDPM).
 
-ScholTrack enables you to do this seamlessly by _**gathering and organizing citation lists for specified papers**_. Furthermore, it allows you to explore intersections between fields, for example, by identifying papers that cite multiple seminal papers across different domains.
+ScholTrack enables you to do this seamlessly by _**gathering and organizing citation lists for specified papers**_. This can be achieved via a single command:
+
+```bash
+scholtrack -u https://www.semanticscholar.org/paper/NeRF-Mildenhall-Srinivasan/428b663772dba998f5dc6a24488fff1858a0899f -o citations.csv
+```
+
+Furthermore, it allows you to explore intersections between fields, for example, by identifying papers that cite multiple seminal papers across different domains.
+
 
 ## The "Collection" Feature
 
