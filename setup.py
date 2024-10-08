@@ -8,7 +8,6 @@ setup(
     author_email='sergey.prokudin@gmail.com,
     url='https://github.com/sergeyprokudin/scholtrack',
     packages=find_packages(),
-    include_package_data=True,
     install_requires=[
         'requests',
         'tqdm',
