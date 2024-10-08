@@ -1,6 +1,6 @@
 ![scholtrack](https://github.com/user-attachments/assets/368377a3-c43b-4d59-a656-0f70f9d3f329)
 
-# ScholTrack: Effortlessly Gather, Trace, and Analyze Citations for Academic Papers
+# ScholTrack: Track, Collect, and Analyze Academic Paper Citations
 
 **ScholTrack** is a Python command-line tool that helps researchers retrieve, organize, and export scholarly paper citations from [Semantic Scholar](https://www.semanticscholar.org/). Whether you need to track citations for specific papers or monitor the evolution of ideas across research fields, ScholTrack makes it easy to fetch, filter, and export citation data. You can work with individual papers or collections of key papers in your field.
 
