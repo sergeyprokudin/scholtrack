@@ -14,7 +14,8 @@ Tracking the evolution of ideas and staying up to date with developments in your
 ScholTrack enables you to do this seamlessly by _**gathering and organizing citation lists for specified papers**_. This can be achieved via a single command:
 
 ```bash
-scholtrack -u semanticscholar.org/paper/NeRF-Mildenhall-Srinivasan/428b663772dba998f5dc6a24488fff1858a0899f -o citations.csv
+# 428b663772dba998f5dc6a24488fff1858a0899f is the Semantic Scholar Paper ID for NeRF by Mildenhall et al.
+scholtrack -u 428b663772dba998f5dc6a24488fff1858a0899f -o citations.csv
 ```
 
 Furthermore, it allows you to explore intersections between fields, for example, by identifying papers that cite multiple seminal papers across different domains.
@@ -116,7 +117,7 @@ scholtrack --paper-ids <list-of-paper-ids> [options]
 
 ## Examples
 
-You can try all examples directly in the [simple Colab demo](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Command_Line_Demo.ipynb)
+You can try all examples directly in the [simple Colab demo](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Command_Line_Demo.ipynb).
 
 ### Example 1: Fetch Citations for Multiple Paper IDs and Export to CSV
 
