@@ -18,8 +18,20 @@ def rolling_indicator():
             sys.stdout.flush()
             time.sleep(0.2)
 
+def print_header():
+    """Print a nice header with ******* and author information."""
+    print("\n" + "*" * 70)
+    print("*" * 8 + "    ScholTrack: Fetch Citations for Academic Papers   " + "*" * 8)
+    print("*" * 70)
+    print("Author: Sergey Prokudin")
+    print("Email: sergey.prokudin@gmail.com")
+    print("Date: 2024")
+    print("*" * 70 + "\n")
+
 def main():
-    
+    # Print the header
+    print_header()
+
     parser = argparse.ArgumentParser(
         description='ScholTrack Command-Line Interface: Fetch Citations for Papers via Semantic Scholar API',
         epilog='''Usage examples:
@@ -42,13 +54,12 @@ def main():
         6. Fetch and export citations for papers in "diffusion" collection, sorted by citation count, but show only the first 5 results in the terminal:
             scholtrack -c diffusion -s citations -t csv -o diffusion_citations.csv -l 5
 
-        7. Fetch citations for paper IDs and display only those citing at least 3 papers from the list:
-            scholtrack -p 11665dbecb17ef4d3d71b75b8666ce0e61bd43fa a57debf768b0454e60c97d16d1cf80e9b3ae8a55 -n 3 -t stdout
+        7. Fetch citations for paper IDs and display only those citing at least 2 papers from the list:
+            scholtrack -p 11665dbecb17ef4d3d71b75b8666ce0e61bd43fa 4502a2773c9a6851ad1fb57904e84c8b0572ba95 -n 2 -t stdout
 
         Note: To get Semantic Scholar Paper IDs, visit https://www.semanticscholar.org, search for the paper, and extract the ID from the URL (see README for detailed instructions).''',
         formatter_class=argparse.RawTextHelpFormatter
     )
-
 
     # Main command to get citations
     parser.add_argument('-p', '--paper-ids', nargs='+', help='List of paper IDs to get citations for')
@@ -134,7 +145,7 @@ def main():
         CitationExporter.save_to_json(citations, filename=args.output)
         print(f"%d citations saved to {args.output}" % n_citations)
     elif args.output_type == 'txt':
-        CitationExporter.save_to_txt(citations, filename=args.output, sort_by=args.sort_by, skip_abstract=args.skip_abstract)
+        CitationExporter.save_to_txt(citations, filename=args.output, sort_by=args.sort_by, show_abstract=args.show_abstract)
         print(f"%d citations saved to {args.output}" % n_citations)
     elif args.output_type == 'stdout':
         CitationExporter.display_citations(citations, sort_by=args.sort_by, limit=args.display_limit, show_abstract=args.show_abstract)
