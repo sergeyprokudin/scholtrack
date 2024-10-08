@@ -14,7 +14,7 @@ Tracking the evolution of ideas and staying up to date with developments in your
 ScholTrack enables you to do this seamlessly by _**gathering and organizing citation lists for specified papers**_. This can be achieved via a single command:
 
 ```bash
-scholtrack -u https://www.semanticscholar.org/paper/NeRF-Mildenhall-Srinivasan/428b663772dba998f5dc6a24488fff1858a0899f -o citations.csv
+scholtrack -u semanticscholar.org/paper/NeRF-Mildenhall-Srinivasan/428b663772dba998f5dc6a24488fff1858a0899f -o citations.csv
 ```
 
 Furthermore, it allows you to explore intersections between fields, for example, by identifying papers that cite multiple seminal papers across different domains.
