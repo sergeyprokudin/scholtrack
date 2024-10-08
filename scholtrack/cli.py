@@ -6,6 +6,7 @@ from pathlib import Path
 from threading import Thread
 from scholtrack.api import CitationExplorerAPI
 from scholtrack.exporter import CitationExporter
+import re
 
 # Define the path to the collections folder in the root directory of the repository
 ROOT_COLLECTIONS_DIR = Path(__file__).resolve().parent.parent / 'collections'
@@ -28,6 +29,31 @@ def print_header():
     print("Date: 2024")
     print("*" * 70 + "\n")
 
+    
+def extract_paper_id(url: str) -> str:
+    """
+    Extract the paper ID from a Semantic Scholar URL.
+
+    Args:
+        url (str): The Semantic Scholar URL to extract the paper ID from.
+
+    Returns:
+        str: The extracted paper ID, or an empty string if not found.
+    """
+    # Define a regular expression to match the Paper ID pattern from the URL
+    pattern = r"semanticscholar\.org/paper/.+?/([a-f0-9]{40})"
+    
+    # Try to find the paper ID using the regular expression
+    match = re.search(pattern, url)
+    
+    if match:
+        # Return the matched Paper ID
+        return match.group(1)
+    else:
+        # Return an empty string if no match is found
+        return ""
+
+    
 def main():
     # Print the header
     print_header()
@@ -48,21 +74,18 @@ def main():
         4. Fetch citations and save to TXT, sorted by ArXiv ID, and skipping abstracts:
             scholtrack -f collections/nerf.txt -t txt -o citations.txt --skip-abstract -s arxiv
 
-        5. Display the first 10 citations in the terminal, including abstracts:
+        5. Fetch and display citations from URLs, exporting results to CSV:
+            scholtrack --urls https://www.semanticscholar.org/paper/LGM%3A-Large-Multi-View-Gaussian-Model-for-3D-Content-Tang-Chen/11665dbecb17ef4d3d71b75b8666ce0e61bd43fa -o my_citations.csv -t csv
+
+        6. Display the first 10 citations in the terminal, including abstracts:
             scholtrack -f collections/nerf.txt -v --show-abstract
-
-        6. Fetch and export citations for papers in "diffusion" collection, sorted by citation count, but show only the first 5 results in the terminal:
-            scholtrack -c diffusion -s citations -t csv -o diffusion_citations.csv -l 5
-
-        7. Fetch citations for paper IDs and display only those citing at least 2 papers from the list:
-            scholtrack -p 11665dbecb17ef4d3d71b75b8666ce0e61bd43fa 4502a2773c9a6851ad1fb57904e84c8b0572ba95 -n 2 -t stdout
-
-        Note: To get Semantic Scholar Paper IDs, visit https://www.semanticscholar.org, search for the paper, and extract the ID from the URL (see README for detailed instructions).''',
+        ''',
         formatter_class=argparse.RawTextHelpFormatter
     )
 
     # Main command to get citations
     parser.add_argument('-p', '--paper-ids', nargs='+', help='List of paper IDs to get citations for')
+    parser.add_argument('-u', '--urls', nargs='+', help='List of Semantic Scholar URLs to get paper IDs from')
     parser.add_argument('-f', '--file', help='Path to the text file with paper IDs and optional comments')
     parser.add_argument('-c', '--collection', help='Name of the collection (automatically looks in collections/ folder in the repository root)')
     parser.add_argument('-n', '--cites-at-least-n', type=int, default=0, help='Minimum number of papers a citing paper must reference from the provided list')
@@ -75,21 +98,41 @@ def main():
     parser.add_argument('-l', '--display-limit', type=int, default=5, help='Maximum number of found papers to show in terminal')
 
     args = parser.parse_args()
-   
-    # Check if any input is provided (either --collection, --file, or --paper-ids)
+
+    # Check if any input is provided (either --collection, --file, --paper-ids, or --urls)
+    paper_ids = []
+
+    if args.urls:
+        print(f"Fetching paper IDs from provided URLs.")
+        for url in args.urls:
+            paper_id = extract_paper_id(url)
+            if paper_id:
+                paper_ids.append(paper_id)
+            else:
+                print(f"Warning: Unable to extract paper ID from URL {url}")
+
     if args.collection:
         print(f"Fetching citations for papers from the collection: {args.collection}.")
+        collection_file = ROOT_COLLECTIONS_DIR / f'{args.collection}.txt'
+        if collection_file.exists():
+            paper_ids.extend(CitationExplorerAPI.parse_paper_ids_from_file(collection_file))
+        else:
+            print(f"Error: Collection file {args.collection}.txt not found in the collections/ folder.")
+            return
     elif args.file:
         print(f"Fetching citations for papers listed in the file: {args.file}.")
+        paper_ids.extend(CitationExplorerAPI.parse_paper_ids_from_file(args.file))
     elif args.paper_ids:
         print(f"Fetching citations for the specified paper IDs: {', '.join(args.paper_ids)}.")
-    else:
+        paper_ids.extend(args.paper_ids)
+
+    if not paper_ids:
         # If no input is provided, display an error and usage example
         parser.error(
             "No input provided. Please specify at least one of the following options: "
-            "--collection (-c), --file (-f), or --paper-ids (-p).\n\n"
+            "--urls (-u), --collection (-c), --file (-f), or --paper-ids (-p).\n\n"
             "Example:\n"
-            "    scholtrack -p 11665dbecb17ef4d3d71b75b8666ce0e61bd43fa -o citations.csv -t csv"
+            "    scholtrack -u https://www.semanticscholar.org/paper/11665dbecb17ef4d3d71b75b8666ce0e61bd43fa -o citations.csv -t csv"
         )
 
     print("\nScholTrack is about to start fetching citations for the provided papers.")
@@ -107,28 +150,6 @@ def main():
 
     # Initialize the API client with or without the API key
     api_client = CitationExplorerAPI(api_key=args.api_key)
-
-    # Paper IDs can come from --paper-ids, --file, or --collection
-    paper_ids = []
-
-    if args.collection:
-        # Look for the collection file in the collections/ folder in the root directory
-        collection_file = ROOT_COLLECTIONS_DIR / f'{args.collection}.txt'
-        if collection_file.exists():
-            paper_ids = api_client.parse_paper_ids_from_file(collection_file)
-        else:
-            print(f"Error: Collection file {args.collection}.txt not found in the collections/ folder.")
-            return
-    elif args.file:
-        # Parse paper IDs from the provided file
-        paper_ids = api_client.parse_paper_ids_from_file(args.file)
-    elif args.paper_ids:
-        # Use paper IDs from the command line input
-        paper_ids = args.paper_ids
-
-    if not paper_ids:
-        print("Error: No paper IDs provided. Please use --paper-ids, --file, or --collection. See README for instructions on how to obtain paper IDs.")
-        return
 
     # Fetch citations, ensuring uniqueness and applying the cites_at_least_n filter
     citations = api_client.get_citations_for_papers(paper_ids, cites_at_least_n=args.cites_at_least_n)
