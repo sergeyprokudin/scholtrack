@@ -7,9 +7,11 @@ from threading import Thread
 from scholtrack.api import CitationExplorerAPI
 from scholtrack.exporter import CitationExporter
 import re
+import pkg_resources
+
 
 # Define the path to the collections folder in the root directory of the repository
-ROOT_COLLECTIONS_DIR = Path(__file__).resolve().parent.parent / 'collections'
+# ROOT_COLLECTIONS_DIR = Path(__file__).resolve().parent.parent / 'collections'
 
 def rolling_indicator():
     """A simple rolling progress indicator to show the process is ongoing."""
@@ -113,7 +115,7 @@ def main():
 
     if args.collection:
         print(f"Fetching citations for papers from the collection: {args.collection}.")
-        collection_file = ROOT_COLLECTIONS_DIR / f'{args.collection}.txt'
+        collection_file = pkg_resources.resource_filename('scholtrack', f'collections/{args.collection}.txt')
         if collection_file.exists():
             paper_ids.extend(CitationExplorerAPI.parse_paper_ids_from_file(collection_file))
         else:

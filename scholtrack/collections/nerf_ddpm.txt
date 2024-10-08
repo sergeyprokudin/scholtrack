@@ -1,0 +1,5 @@
+# Intersection of NeRF and DDPM
+428b663772dba998f5dc6a24488fff1858a0899f # Nerf: Representing scenes as neural radiance fields for view synthesis (Mildenhall et al.)
+5c126ae3421f05768d8edd97ecd44b1364e2c99a # Denoising Diffusion Probabilistic Models (Ho et al.)
+4c94d04afa4309ec2f06bdd0fe3781f91461b362 # DreamFusion: Text-to-3D using 2D Diffusion (Poole et al.)
+fcd0de4066d93fa3822a14898008fa2dd99f7be6 # SyncDreamer: Generating Multiview-consistent Images from a Single-view Image (Liu et al.)
