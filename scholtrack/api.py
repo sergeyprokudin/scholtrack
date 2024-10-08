@@ -38,7 +38,10 @@ class CitationExplorerAPI:
                 "limit": limit,
                 "offset": offset,
             }
-
+            
+            if offset + limit >= 10000:
+                print("WARNING: Paper ID %s have more than 10000 citations, not all of them will be fetched!" % paper_id)
+                break
             response = requests.get(f"{self.BASE_URL}/{paper_id}/citations", headers=self.headers, params=params)
             if response.status_code != 200:
                 print(f"Error: {response.status_code} - {response.text}")
@@ -50,7 +53,7 @@ class CitationExplorerAPI:
                 break
             citations.extend(new_citations)
             offset += limit
-
+            
         return citations
 
     def get_citations_for_papers(self, paper_ids: List[str], cites_at_least_n: int = 0, limit: int = 1000) -> List[Dict[str, Any]]:
