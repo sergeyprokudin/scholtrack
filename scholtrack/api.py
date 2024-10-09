@@ -30,7 +30,7 @@ class CitationExplorerAPI:
         """
         citations = []
         offset = 0
-        max_citations = 10000  # The limit imposed by Semantic Scholar without an API key.
+        max_citations = 9999  # The limit imposed by Semantic Scholar without an API key.
 
         while offset < max_citations:
             params = {
