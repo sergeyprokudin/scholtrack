@@ -23,7 +23,7 @@ def print_header():
     """Print a structured header with app information."""
     header = """
 ╔════════════════════════════════════════════════════════════════════╗
-║                      ScholTrack: Citation Tracker                  ║
+║                ScholTrack: Academic Citation Tracker               ║
 ╟────────────────────────────────────────────────────────────────────╢
 ║ Version: 0.1.1                                                     ║
 ║ License: Apache 2.0                                                ║
@@ -32,7 +32,6 @@ def print_header():
 ║ Last Update: October 2024                                          ║
 ║ Author: Sergey Prokudin (sergey.prokudin@gmail.com)                ║
 ╚════════════════════════════════════════════════════════════════════╝
-
 """
     print(header)
 
