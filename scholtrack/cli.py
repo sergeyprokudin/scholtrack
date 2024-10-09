@@ -41,6 +41,7 @@ RED_COLOR = '\033[91m'
 GREEN_COLOR = '\033[92m'
 YELLOW_COLOR = '\033[93m'
 BLUE_COLOR = '\033[94m'
+PURPLE_COLOR = '\033[95m'
 DEFAULT_COLOR = '\033[0m'  # Reset color to default
 
 def extract_paper_id(url: str) -> str:
@@ -205,7 +206,7 @@ def main():
                 'arxiv': 'arXiv date of appearance',
                 'year': 'year of publication'
             }
-            print(f"\nAll done, found {GREEN_COLOR}{len(citations)} citations{DEFAULT_COLOR}. Showing {RED_COLOR}top {args.display_limit} results based on {sort_explanation[args.sort_by]}{DEFAULT_COLOR}.")
+            print(f"\nAll done, found {GREEN_COLOR}{len(citations)} citations{DEFAULT_COLOR}. Showing {PURPLE_COLOR}top {args.display_limit} results based on {sort_explanation[args.sort_by]}{DEFAULT_COLOR}.")
             if args.output:
                 print(f"The full results are saved in {BLUE_COLOR}{args.output}{DEFAULT_COLOR}.")
                 
