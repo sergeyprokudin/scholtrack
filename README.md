@@ -22,7 +22,7 @@ For the latest development version, install directly from GitHub:
 pip install git+https://github.com/sergeyprokudin/scholtrack.git
 ```
 
-## Getting Started
+## Getting Started [&#128279; code](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Demo.ipynb)
 
 The easiest way to explore ScholTrack is by [finding the Semantic Scholar Paper ID](https://github.com/sergeyprokudin/scholtrack/blob/main/README.md#finding-paper-ids) for your paper of interest and running the following command:
 
@@ -31,7 +31,6 @@ scholtrack -p 2cc1d857e86d5152ba7fe6a8355c2a0150cc280a -o 3dgs_references.csv
 ```
 
 This command retrieves all papers citing [3D Gaussian Splatting](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/) (Paper ID 2cc1d857e86d5152ba7fe6a8355c2a0150cc280a), a seminal work in the novel view synthesis field. The results are saved in a CSV file named *3dgs_references.csv* and include abstracts, citation counts, arXiv links, publication venues, and more.
-
 
 ## No-code Demo
 
@@ -86,7 +85,8 @@ You can create custom paper collections to track daily progress in your field of
 **Note**: Retrieving results for papers with thousands of citations or long citation lists may take a few minutes. Additionally, the current limit for citations that can be retrieved from the Semantic Scholar API without an API key is 10,000 per paper.
 
 
-### Example 3: Finding Papers at the Intersection of Fields
+### Example 3: Finding Papers at the Intersection of Fields [&#128279; code](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Avatar_Demo.ipynb).
+
 
 You can perform a more targeted search to find papers that cite multiple works from a given list. This is useful for identifying papers that lie at the intersection of different research fields. For example, the following command finds all papers that cite both [3D Gaussian Splatting](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/) and the seminal work *["SMPL: A Skinned Multi-Person Linear Model"](https://smpl.is.tue.mpg.de/)* on digital humans, offering a comprehensive view of how 3DGS techniques are applied in digital avatar modeling:
 
