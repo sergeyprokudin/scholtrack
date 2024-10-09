@@ -12,6 +12,12 @@
 ## Installation
 
 ```bash
+pip install scholtrack
+```
+
+For the latest development version, install directly from GitHub:
+
+```bash
 pip install git+https://github.com/sergeyprokudin/scholtrack.git
 ```
 
