@@ -38,6 +38,7 @@ def print_header():
 
 # ANSI escape codes for colors
 RED_COLOR = '\033[91m'
+GREEN_COLOR = '\033[92m'
 YELLOW_COLOR = '\033[93m'
 BLUE_COLOR = '\033[94m'
 DEFAULT_COLOR = '\033[0m'  # Reset color to default
@@ -204,9 +205,9 @@ def main():
                 'arxiv': 'arXiv date of appearance',
                 'year': 'year of publication'
             }
-            print(f"\nAll done, found {RED_COLOR}{len(citations)}{DEFAULT_COLOR} citations. Showing {args.display_limit} results based on {BLUE_COLOR}{sort_explanation[args.sort_by]}{DEFAULT_COLOR}.")
+            print(f"\nAll done, found {GREEN_COLOR}{len(citations)} citations{DEFAULT_COLOR}. Showing {RED_COLOR} top {args.display_limit} results {DEFAULT_COLOR} based on {sort_explanation[args.sort_by]}.")
             if args.output:
-                print(f"The full results are saved in {YELLOW_COLOR}'{args.output}'{DEFAULT_COLOR}.")
+                print(f"The full results are saved in {YELLOW_COLOR}{args.output}{DEFAULT_COLOR}.")
                 
     except Exception as e:
         stop_event.set()
