@@ -1,6 +1,6 @@
 ![scholtrack](https://github.com/user-attachments/assets/368377a3-c43b-4d59-a656-0f70f9d3f329)
 
-# ScholTrack: Track, Collect, and Analyze Academic Paper Citations
+# ScholTrack: Effortless Tracking and Analysis of Academic Citations
 
 [![Open Demo in Colab (Widget, No Code)](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Widget_Demo.ipynb)<br> 
 
