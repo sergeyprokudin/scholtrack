@@ -2,9 +2,10 @@
 
 # ScholTrack: Track, Fetch and Analyze Academic Citations
 
-###  [Online Widget (No-code)](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Widget_Demo.ipynb) | [Command Line Demo](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Command_Line_Demo.ipynb)
+###  [Online Widget (Search by Paper IDs)](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Widget_Demo.ipynb) | [Online Demo (Get All 3DGS Citations)](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Demo.ipynb) |
 
-[![Open Demo in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Command_Line_Demo.ipynb)<br> 
+
+[![Open Demo in Colab](https://colab.research.google.com/assets/colab-badge.svg)]((https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Demo.ipyn)<br> 
 
 **ScholTrack** is a Python command-line tool designed to help researchers retrieve, organize, and export academic paper citations using [Semantic Scholar API](https://www.semanticscholar.org/product/api). Whether you want to track citations for seminal papers or survey an entire research area, ScholTrack simplifies the process of fetching, filtering, and exporting citation data in various human- and machine-readable formats, such as CSV, TXT, or JSON. It allows you to work with individual papers or collections of key works within your field.
 
@@ -30,6 +31,7 @@ scholtrack -p 2cc1d857e86d5152ba7fe6a8355c2a0150cc280a -o 3dgs_references.csv
 ```
 
 This command retrieves all papers citing [3D Gaussian Splatting](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/) (Paper ID 2cc1d857e86d5152ba7fe6a8355c2a0150cc280a), a seminal work in the novel view synthesis field. The results are saved in a CSV file named *3dgs_references.csv* and include abstracts, citation counts, arXiv links, publication venues, and more.
+  
 
 ## No-code Demo
 
