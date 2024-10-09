@@ -2,7 +2,7 @@
 
 # ScholTrack: Automate Finding and Fetching Academic Citations 
 
-###  [Online Tool (Search by Paper IDs)](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Widget_Demo.ipynb) | [Demo (Get All 3DGS Citations))](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Demo.ipynb) 
+###  [Online Tool (Search by Paper IDs)](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Widget_Demo.ipynb) | [Demo (Fetch 3DGS Citations)](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Demo.ipynb) 
 
 
  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Command_Line_Demo.ipynb)<br> 
