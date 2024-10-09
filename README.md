@@ -18,7 +18,7 @@ pip install scholtrack
 
 ## Getting Started
 
-To use ScholTrack, simply [find the Semantic Scholar Paper ID](https://github.com/sergeyprokudin/scholtrack/blob/main/README.md#finding-paper-ids) for the paper you're interested in and run the following command:
+To use ScholTrack, simply [find the Semantic Scholar Paper IDs](https://github.com/sergeyprokudin/scholtrack/blob/main/README.md#finding-paper-ids) for the papers you're interested in and run the following command:
 
 ```bash
 scholtrack -p 2cc1d857e86d5152ba7fe6a8355c2a0150cc280a -o 3dgs_references.csv
