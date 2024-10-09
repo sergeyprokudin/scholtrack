@@ -5,7 +5,7 @@
 ###  [Online Widget (Search by Paper IDs)](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Widget_Demo.ipynb) | [Online Demo](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Demo.ipynb) 
 
 
-![Open Demo in Colab](https://colab.research.google.com/assets/colab-badge.svg)((https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Demo.ipyn)<br> 
+![Open Demo in Colab](https://colab.research.google.com/assets/colab-badge.svg)(https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Demo.ipyn)<br> 
 
 **ScholTrack** is a Python command-line tool designed to help researchers retrieve, organize, and export academic paper citations using [Semantic Scholar API](https://www.semanticscholar.org/product/api). Whether you want to track citations for seminal papers or survey an entire research area, ScholTrack simplifies the process of fetching, filtering, and exporting citation data in various human- and machine-readable formats, such as CSV, TXT, or JSON. It allows you to work with individual papers or collections of key works within your field.
 
