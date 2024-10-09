@@ -15,18 +15,17 @@ pip install git+https://github.com/sergeyprokudin/scholtrack.git
 
 ## Getting Started
 
-The simplest way to explore ScholTrack is by running the following command:
+The easiest way to explore ScholTrack is by [finding the Semantic Scholar Paper ID](https://github.com/sergeyprokudin/scholtrack/blob/main/README.md#finding-paper-ids) for your paper of interest and running the following command:
 
 ```bash
 scholtrack -p 2cc1d857e86d5152ba7fe6a8355c2a0150cc280a -o 3dgs_references.csv
 ```
 
-This command retrieves all papers citing [3D Gaussian Splatting](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/), a recent seminal work in the novel view synthesis field. The results are saved in a CSV file called *3dgs_references.csv* and include paper abstracts, citation counts, links to arXiv, publishing venues, and more.
-
+This command retrieves all papers citing [3D Gaussian Splatting](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/) (Paper ID 2cc1d857e86d5152ba7fe6a8355c2a0150cc280a), a seminal work in the novel view synthesis field. The results are saved in a CSV file named *3dgs_references.csv* and include abstracts, citation counts, arXiv links, publication venues, and more.
 
 ## No-code Demo
 
-For a simple online demo, check out the provided [Colab Widget](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Widget_Demo.ipynb). This tool allows you to input a list of Semantic Scholar paper URLs and retrieve the corresponding citation data, all without any coding required.
+Alternatively, for a simple online demo, check out the provided [Colab Widget](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Widget_Demo.ipynb). This tool allows you to input a list of Semantic Scholar Paper IDs and retrieve the corresponding citation data, all without any coding required.
 
 ## Examples
 
