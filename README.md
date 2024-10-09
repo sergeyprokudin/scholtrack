@@ -69,7 +69,7 @@ You can create custom paper collections to track daily progress in your field of
 You can perform a more focused search to find papers that cite more than one work from a list. This is useful for identifying papers that lie at the intersection of different fields. For instance, the following search finds all papers that cite both 3D Gaussian Splatting (3DGS) and the seminal work *["SMPL: A Skinned Multi-Person Linear Model"](https://smpl.is.tue.mpg.de/)* on digital humans:
 
 ```bash
-scholtrack -f 2cc1d857e86d5152ba7fe6a8355c2a0150cc280a 32d3048a4fe4becc7c4638afd05f2354b631cfca 3dgs_humans.csv -n 2
+scholtrack -p 2cc1d857e86d5152ba7fe6a8355c2a0150cc280a 32d3048a4fe4becc7c4638afd05f2354b631cfca -o 3dgs_humans.csv -n 2
 ```
 
 Here, `-n 2` specifies that we are only interested in works that cite at least two papers from the list.
