@@ -36,6 +36,11 @@ def print_header():
     print(header)
 
 
+# ANSI escape codes for colors
+RED_COLOR = '\033[91m'
+YELLOW_COLOR = '\033[93m'
+BLUE_COLOR = '\033[94m'
+DEFAULT_COLOR = '\033[0m'  # Reset color to default
 
 def extract_paper_id(url: str) -> str:
     """
@@ -199,9 +204,9 @@ def main():
                 'arxiv': 'arXiv date of appearance',
                 'year': 'year of publication'
             }
-            print(f"\nAll done, found {len(citations)} citations. Showing {args.display_limit} results based on {sort_explanation[args.sort_by]}.")
+            print(f"\nAll done, found {RED_COLOR}{len(citations)}{DEFAULT_COLOR} citations. Showing {args.display_limit} results based on {BLUE_COLOR}{sort_explanation[args.sort_by]}{DEFAULT_COLOR}.")
             if args.output:
-                print(f"The full results are saved in '{args.output}'.")
+                print(f"The full results are saved in {YELLOW_COLOR}'{args.output}'{DEFAULT_COLOR}.")
                 
     except Exception as e:
         stop_event.set()
