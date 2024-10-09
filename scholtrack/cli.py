@@ -205,7 +205,7 @@ def main():
                 'arxiv': 'arXiv date of appearance',
                 'year': 'year of publication'
             }
-            print(f"\nAll done, found {GREEN_COLOR}{len(citations)} citations{DEFAULT_COLOR}. Showing top {args.display_limit} results based on {BLUE_COLOR}{sort_explanation[args.sort_by]}{DEFAULT_COLOR}.")
+            print(f"\nAll done, found {GREEN_COLOR}{len(citations)} citations{DEFAULT_COLOR}. Showing {BLUE_COLOR}top {args.display_limit} results based on {sort_explanation[args.sort_by]}{DEFAULT_COLOR}.")
             if args.output:
                 print(f"The full results are saved in {YELLOW_COLOR}{args.output}{DEFAULT_COLOR}.")
                 
