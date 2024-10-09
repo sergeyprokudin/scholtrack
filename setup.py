@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='scholtrack',
-    version='0.1.0',
+    version='0.1.0.1',
     description='Effortlessly gather, trace, and manage citations for academic papers',
     author='Sergey Prokudin',
     author_email='sergey.prokudin@gmail.com',
