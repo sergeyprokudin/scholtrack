@@ -101,10 +101,10 @@ def main():
         epilog='''Usage examples:
 
         1. Fetch citations for multiple paper IDs and export to CSV:
-            scholtrack -p 11665dbecb17ef4d3d71b75b8666ce0e61bd43fa a57debf768b0454e60c97d16d1cf80e9b3ae8a55 -o my_citations.csv -t csv
+            scholtrack -p 2cc1d857e86d5152ba7fe6a8355c2a0150cc280a 428b663772dba998f5dc6a24488fff1858a0899f -o my_citations.csv -t csv
 
         2. Fetch and display citations for Paper IDs from a file, sorted by year:
-            scholtrack -f collections/nerf.txt -s year -t stdout
+            scholtrack -f nerf.txt -s year -t stdout
 
         3. Fetch citations for papers in the "nerf" collection, but only display those citing at least 2 papers from the list:
             scholtrack -c nerf -n 2 -t stdout
