@@ -20,14 +20,23 @@ def rolling_indicator(stop_event):
             time.sleep(0.2)
 
 def print_header():
-    """Print a nice header with ******* and author information."""
-    print("\n" + "*" * 70)
-    print("*" * 8 + "    ScholTrack: Fetch Citations for Academic Papers   " + "*" * 8)
-    print("*" * 70)
-    print("Author: Sergey Prokudin")
-    print("Email: sergey.prokudin@gmail.com")
-    print("Date: 2024")
-    print("*" * 70 + "\n")
+    """Print a structured header with app information."""
+    header = """
+╔════════════════════════════════════════════════════════════════════╗
+║                      ScholTrack: Citation Tracker                  ║
+╟────────────────────────────────────────────────────────────────────╢
+║ Version: 0.1.1                                                     ║
+║ License: Apache 2.0                                                ║
+║ Repo: https://github.com/sergeyprokudin/scholtrack                 ║
+║ Data Source: Semantic Scholar API                                  ║
+║ Last Update: October 2024                                          ║
+║ Author: Sergey Prokudin (sergey.prokudin@gmail.com)                ║
+╚════════════════════════════════════════════════════════════════════╝
+
+"""
+    print(header)
+
+
 
 def extract_paper_id(url: str) -> str:
     """
