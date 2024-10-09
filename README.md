@@ -1,4 +1,4 @@
-![scholtrack](https://github.com/user-attachments/assets/368377a3-c43b-4d59-a656-0f70f9d3f329)
+![scholtrack_demo](https://github.com/user-attachments/assets/05360671-9674-498f-87b8-682481f2ad7d)
 
 # ScholTrack: Effortless Tracking and Analysis of Academic Citations
 
