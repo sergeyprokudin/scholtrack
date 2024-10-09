@@ -20,7 +20,7 @@ pip install scholtrack
 
 ## Getting Started
 
-To use ScholTrack, simply [find the Semantic Scholar Paper IDs](https://github.com/sergeyprokudin/scholtrack/blob/main/README.md#finding-paper-ids) for the papers you're interested in and run the following command:
+To use ScholTrack, simply [find the Semantic Scholar Paper IDs](https://github.com/sergeyprokudin/scholtrack/blob/main/README.md#finding-paper-ids) for the papers you are interested in and run the following command:
 
 ```bash
 scholtrack -p 2cc1d857e86d5152ba7fe6a8355c2a0150cc280a -o 3dgs_references.csv
@@ -81,16 +81,15 @@ You can create custom paper collections to track daily progress in your field of
 **Note**: Retrieving results for papers with thousands of citations or long citation lists may take a few minutes. Additionally, the current limit for citations that can be retrieved from the Semantic Scholar API without an API key is 10,000 per paper.
 
 
-### Example 3: Finding Papers at the Intersection of Fields [&#128279; code](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Avatar_Demo.ipynb).
+### Example 3: Finding Papers at the Intersection of Fields [📎 Demo](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Avatar_Demo.ipynb)
 
-
-You can perform a more targeted search to find papers that cite multiple works from a given list. This is useful for identifying papers that lie at the intersection of different research fields. For example, the following command finds all papers that cite both [3D Gaussian Splatting](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/) and the seminal work *["SMPL: A Skinned Multi-Person Linear Model"](https://smpl.is.tue.mpg.de/)* on digital humans, offering a comprehensive view of how 3DGS techniques are applied in digital avatar modeling:
+You can perform a more targeted search to find papers that cite multiple works from a given list, which is useful for identifying research at the intersection of different fields. For example, the command below retrieves all papers that cite both [3D Gaussian Splatting](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/) and the seminal work *["SMPL: A Skinned Multi-Person Linear Model"](https://smpl.is.tue.mpg.de/)* on digital humans. This provides a comprehensive view of how 3DGS techniques are applied in digital avatar modeling:
 
 ```bash
 scholtrack -o avatar_3dgs.csv -n 2 -p 2cc1d857e86d5152ba7fe6a8355c2a0150cc280a 32d3048a4fe4becc7c4638afd05f2354b631cfca
 ```
 
-Here, `-n 2` indicates that only papers citing at least two works from the list are of interest.
+Here, `-n 2` specifies that only papers citing at least two works from the list will be included.
 
 
 ### Example 4: Using Pre-built Paper Collections
