@@ -79,7 +79,9 @@ You can create custom paper collections to track daily progress in your field of
 **Note**: Retrieving results for papers with thousands of citations or long citation lists may take a few minutes. Additionally, the current limit for citations that can be retrieved from the Semantic Scholar API without an API key is 10,000 per paper.
 
 
-### Example 3: Finding Papers at the Intersection of Fields ([📎 Demo](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Avatar_Demo.ipynb))
+### Example 3: Finding Papers at the Intersection of Fields 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Avatar_Demo.ipynb)<br> 
+
 
 You can perform a more targeted search to find papers that cite multiple works from a given list, which is useful for identifying research at the intersection of different fields. For example, the command below retrieves all papers that cite both [3D Gaussian Splatting](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/) and the seminal work *["SMPL: A Skinned Multi-Person Linear Model"](https://smpl.is.tue.mpg.de/)* on digital humans. This provides a comprehensive view of how 3DGS techniques are applied in digital avatar modeling:
 
