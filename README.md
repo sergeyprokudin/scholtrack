@@ -8,7 +8,7 @@
  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Command_Line_Demo.ipynb)<br> 
 
 
-**ScholTrack** is a small Python tool that **finds and saves all citations for a specified paper (or a list of papers) into one file**. This is particularly useful for surveying a specific field of study by retrieving papers that cite seminal works in that area. The tool uses the public [Semantic Scholar API](https://www.semanticscholar.org/product/api)) to gather citations and extract key information such as titles, abstracts, citation counts, publishing venues, arXiv links, and more, saving the data in formats like CSV, JSON, or TXT for further analysis. You can use it either through the command line interface or via a simple Colab-based online tool.
+**ScholTrack** is a small Python tool that **finds and saves all citations for a specified paper (or a list of papers) into one file**. This is particularly useful for surveying a specific field of study by retrieving papers that cite seminal works in that area. The tool uses the public [Semantic Scholar API](https://www.semanticscholar.org/product/api) to gather citations and extract key information such as titles, abstracts, citation counts, publishing venues, arXiv links, and more, saving the data in formats like CSV, JSON, or TXT for further analysis. You can use it either through the command line interface or via a simple Colab-based online tool.
 
 ## Installation
 
@@ -18,18 +18,21 @@ pip install scholtrack
 
 ## Getting Started
 
-The easiest way to use ScholTrack is by [finding the Semantic Scholar Paper ID](https://github.com/sergeyprokudin/scholtrack/blob/main/README.md#finding-paper-ids) for your paper of interest and running the following command:
+To use ScholTrack, simply [find the Semantic Scholar Paper ID](https://github.com/sergeyprokudin/scholtrack/blob/main/README.md#finding-paper-ids) for the paper you're interested in and run the following command:
 
 ```bash
 scholtrack -p 2cc1d857e86d5152ba7fe6a8355c2a0150cc280a -o 3dgs_references.csv
 ```
 
-This command above retrieves all papers citing [3D Gaussian Splatting](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/). The results are saved in a CSV file named `3dgs_references.csv` and include abstracts, citation counts, arXiv links, publication venues, and more.
+This command retrieves all papers citing [3D Gaussian Splatting](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/) and saves the results in a CSV file (`3dgs_references.csv`). The file includes abstracts, citation counts, arXiv links, publication venues, and more.
 
-## No-code Demo
 
-Alternatively, for a simple online demo, check out the provided [Colab online tool](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Widget_Demo.ipynb). This tool allows you to input a list of Semantic Scholar Paper IDs and retrieve the corresponding citation data, all without any coding required.
+## Online Tool
 
+For a simple, no-code demo, try the [Colab online tool](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Widget_Demo.ipynb). This tool lets you input a list of Semantic Scholar Paper IDs and retrieve the corresponding citation data—no coding required.
+
+
+This version is more concise and to the point.
 ## Examples
 
 You can try all examples directly via [a simple Colab demo](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Command_Line_Demo.ipynb).
