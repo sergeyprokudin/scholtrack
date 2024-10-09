@@ -2,7 +2,7 @@
 
 # ScholTrack: Automate Finding and Fetching Academic Citations 
 
-###  [Online Tool (Search by Paper IDs)](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Widget_Demo.ipynb) | [Demo (Fetch 3DGS Papers)](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Demo.ipynb) 
+###  [Online Tool (Search by Paper IDs)](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Widget_Demo.ipynb) | [Demo](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Demo.ipynb) 
 
 
  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Command_Line_Demo.ipynb)<br> 
@@ -26,7 +26,7 @@ To use ScholTrack, simply [find the Semantic Scholar Paper IDs](https://github.c
 scholtrack -p 2cc1d857e86d5152ba7fe6a8355c2a0150cc280a -o 3dgs_references.csv
 ```
 
-This command retrieves all papers citing [3D Gaussian Splatting](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/) and saves the results in a CSV file (`3dgs_references.csv`). The file includes abstracts, citation counts, arXiv links, publication venues, and more.
+This command retrieves all papers citing [3D Gaussian Splatting](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/) and saves the results in a CSV file (`3dgs_references.csv`). The file includes abstracts, citation counts, arXiv links, publication venues, and more. You can also find papers that cite [several works at the same time](https://github.com/sergeyprokudin/scholtrack/blob/main/README.md#example-3-finding-papers-at-the-intersection-of-fields--demo). 
 
 ## Online Tool
 
