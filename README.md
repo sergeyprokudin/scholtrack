@@ -1,6 +1,6 @@
 ![scholtrack_demo](https://github.com/user-attachments/assets/05360671-9674-498f-87b8-682481f2ad7d)
 
-# ScholTrack: Track, Fetch and Analyze Academic Citations
+# ScholTrack: Automate Finding and Fetching Academic Citations 
 
 ###  [Online Widget (Search by Paper IDs)](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Widget_Demo.ipynb) | [Online Demo](https://colab.research.google.com/github//sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Demo.ipynb) 
 
