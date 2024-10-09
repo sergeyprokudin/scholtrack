@@ -1,5 +1,9 @@
 import requests
 from typing import List, Optional, Dict, Any
+import warnings
+
+# Suppress NotOpenSSLWarning
+warnings.filterwarnings("ignore", category=urllib3.exceptions.NotOpenSSLWarning)
 
 class CitationExplorerAPI:
     """
