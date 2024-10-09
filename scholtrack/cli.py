@@ -194,8 +194,15 @@ def main():
         # Display additional results in the terminal if quiet mode is not enabled
         if not args.quiet:
             CitationExporter.display_citations(citations, sort_by=args.sort_by, limit=args.display_limit, show_abstract=args.show_abstract)
-            print(f"\nAll done, found {len(citations)} citations. Showing {args.display_limit} results.")
-
+            sort_explanation = {
+                'citations': 'citation count',
+                'arxiv': 'arXiv date of appearance',
+                'year': 'year of publication'
+            }
+            print(f"\nAll done, found {len(citations)} citations. Showing {args.display_limit} results based on {sort_explanation[args.sort_by]}.")
+            if args.output:
+                print(f"The full results are saved in '{args.output}'.")
+                
     except Exception as e:
         stop_event.set()
         indicator_thread.join()
