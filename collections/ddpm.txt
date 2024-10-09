@@ -1,2 +1,0 @@
-# Diffusion Models collection
-5c126ae3421f05768d8edd97ecd44b1364e2c99a # Denoising Diffusion Probabilistic Models (Ho et al.)

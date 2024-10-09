@@ -17,31 +17,29 @@ class CitationExplorerAPI:
         """
         self.headers = {"x-api-key": api_key} if api_key else {}
 
-    def get_citations(self, paper_id: str, limit: int = 1000) -> List[Dict[str, Any]]:
+    def get_citations(self, paper_id: str, limit: int = 100) -> List[Dict[str, Any]]:
         """
         Retrieve the citations of a given paper by its Semantic Scholar paper ID.
 
         Args:
             paper_id (str): The ID of the paper to retrieve citations for.
-            limit (int): The maximum number of citations to retrieve per request.
+            limit (int): The maximum number of citations to retrieve per request (max allowed per API call).
 
         Returns:
             List[Dict[str, Any]]: A list of citations for the paper.
         """
         citations = []
         offset = 0
+        max_citations = 10000  # The limit imposed by Semantic Scholar without an API key.
 
-        while True:
+        while offset < max_citations:
             params = {
                 "fields": "title,authors,abstract,citationCount,year,referenceCount,"
                           "influentialCitationCount,venue,fieldsOfStudy,url,externalIds",
-                "limit": limit,
+                "limit": min(limit, max_citations - offset),  
                 "offset": offset,
             }
-            
-            if offset + limit >= 10000:
-                print("WARNING: Paper ID %s have more than 10000 citations, not all of them will be fetched!" % paper_id)
-                break
+
             response = requests.get(f"{self.BASE_URL}/{paper_id}/citations", headers=self.headers, params=params)
             if response.status_code != 200:
                 print(f"Error: {response.status_code} - {response.text}")
@@ -52,9 +50,16 @@ class CitationExplorerAPI:
             if not new_citations:
                 break
             citations.extend(new_citations)
+
             offset += limit
-            
+
+            # Handle the case where we hit the 10,000 citation limit.
+            if offset >= max_citations:
+                print(f"WARNING: Paper ID {paper_id} has more than {max_citations} citations. Only the first {max_citations} will be fetched!")
+                break
+
         return citations
+
 
     def get_citations_for_papers(self, paper_ids: List[str], cites_at_least_n: int = 0, limit: int = 1000) -> List[Dict[str, Any]]:
         """
