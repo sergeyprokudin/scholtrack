@@ -25,7 +25,6 @@ The tool uses the public [Semantic Scholar API](https://www.semanticscholar.org/
    📘 **Demo**: [Fetch papers on 3DGS and SMPL for human avatar modeling](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Avatar_Demo.ipynb)
 
 
-This version improves readability and consistency while keeping the message clear and concise.
 ## Installation
 
 ```bash
