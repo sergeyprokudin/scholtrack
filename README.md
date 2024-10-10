@@ -6,14 +6,14 @@
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Demo.ipynb)
 
-**ScholTrack** is a Python tool designed to **retrieve and save citations for a specified paper** (or a list of papers) into a single file. It is especially useful for surveying a research field by gathering papers that cite key works.
+**ScholTrack** is a Python tool designed to **retrieve and save citations to a specified paper** (or a list of papers) into a single file. It is especially useful for surveying a research field by gathering papers that cite key works.
 
 The tool uses the public [Semantic Scholar API](https://www.semanticscholar.org/product/api) to collect citations and extract important details such as titles, abstracts, citation counts, publishing venues, arXiv links, and more. You can save the data in formats like CSV, JSON, or TXT for further for further analysis or integration with research and LLM tools. ScholTrack can be used via the [command line interface](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Command_Line_Demo.ipynb) or through a simple [Colab-based online tool](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Widget_Demo.ipynb).
 
 ### Use Cases
 
-1. 📚  **Fetch citations for a single paper**  
-   Retrieve all citations for a specified paper and save them to a CSV file.  
+1. 📚  **Fetch all citations to a specific paper**  
+   Retrieve all citations to a specified paper and save them to a CSV file.  
    📘 **Demo**: [Fetch citations for 3D Gaussian Splatting (3DGS)](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Demo.ipynb)
 
 2. 🗞️ **Get the latest works in a research field**  
