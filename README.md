@@ -3,7 +3,7 @@
 
 # ScholTrack: Automate Finding and Fetching Academic Citations
 
-### [Online Tool (Search by Paper IDs)](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Widget_Demo.ipynb) | [3DGS Demo](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Demo.ipynb)  
+### [Online Tool (Search by Paper IDs)](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Widget_Demo.ipynb) | [Demo](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Demo.ipynb)  
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Demo.ipynb)
 
 **ScholTrack** is a Python tool designed to **retrieve and save citations for a specified paper** (or a list of papers) into a single file. It is especially useful for surveying a research field by gathering papers that cite key works.
