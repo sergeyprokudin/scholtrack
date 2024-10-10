@@ -1,0 +1,6 @@
+# collection of works 
+4c94d04afa4309ec2f06bdd0fe3781f91461b362 # DreamFusion: Text-to-3D using 2D Diffusion (Poole at al.)
+bdf4af8311637c681904e71cf50f96fd0026f578 # Magic3D: High-Resolution Text-to-3D Content Creation (Lin et al.)
+fcd0de4066d93fa3822a14898008fa2dd99f7be6 # SyncDreamer: Generating Multiview-consistent Images from a Single-view Image (Liu et al.)
+1206b05eae5a06ba662ae79fb291b50e359c4f42 # Stable Video Diffusion: Scaling Latent Video Diffusion Models to Large Datasets (Blattmann et al.) 
+3b2a675bb617ae1a920e8e29d535cdf27826e999 # Video Diffusion Models (Ho et al.)
