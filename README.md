@@ -16,15 +16,16 @@ The tool uses the public [Semantic Scholar API](https://www.semanticscholar.org/
    Retrieve all citations for a specified paper and save them to a CSV file.  
    📘 **Demo**: [Fetch citations for 3D Gaussian Splatting (3DGS)](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Demo.ipynb)
 
-2. **Retrieve the latest works in a research field**  
+2. **Get the latest works in a research field**  
    Find the most recent papers by collecting citations to a set of seminal works, sorted by publication date.  
    📘 **Demo**: [Fetch the latest works in Novel View Synthesis](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_NVS_Demo.ipynb)
 
-3. **Identify papers that apply a specific method in a field**  
-   Find papers that cite multiple key works, showing how a method (X) is applied in a particular field (Y).  
-   📘 **Demo**: [Fetch works applying 3DGS in human avatar modeling](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Avatar_Demo.ipynb)
+3. **Find papers that cite both methods X and Y**  
+   Identify papers that cite multiple seminal works, highlighting studies that combine methods X and Y.  
+   📘 **Demo**: [Fetch papers on 3DGS and SMPL for human avatar modeling](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Avatar_Demo.ipynb)
 
 
+This version improves readability and consistency while keeping the message clear and concise.
 ## Installation
 
 ```bash
