@@ -6,7 +6,7 @@
 ### [Online Tool (Search by Paper IDs)](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Widget_Demo.ipynb) | [3DGS Demo](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Demo.ipynb)  
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Demo.ipynb)
 
-**ScholTrack** is a Python tool designed to **retrieve and save citations for a specified paper** (or a list of papers) into a single file. It’s especially useful for surveying a research field by gathering papers that cite key works.
+**ScholTrack** is a Python tool designed to **retrieve and save citations for a specified paper** (or a list of papers) into a single file. It is especially useful for surveying a research field by gathering papers that cite key works.
 
 The tool uses the public [Semantic Scholar API](https://www.semanticscholar.org/product/api) to collect citations and extract important details such as titles, abstracts, citation counts, publishing venues, arXiv links, and more. You can save the data in formats like CSV, JSON, or TXT for further analysis. ScholTrack can be used via the [command line interface](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Command_Line_Demo.ipynb) or through a simple [Colab-based online tool](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Widget_Demo.ipynb).
 
