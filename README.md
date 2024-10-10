@@ -36,10 +36,10 @@ pip install scholtrack
 To use ScholTrack, simply [find the Semantic Scholar Paper IDs](https://github.com/sergeyprokudin/scholtrack/blob/main/README.md#finding-paper-ids) for the papers you are interested in and run the following command:
 
 ```bash
-scholtrack -p 2cc1d857e86d5152ba7fe6a8355c2a0150cc280a -o 3dgs_references.csv
+scholtrack -p 2cc1d857e86d5152ba7fe6a8355c2a0150cc280a -o 3dgs_citations.csv
 ```
 
-This command retrieves all papers citing [3D Gaussian Splatting](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/) and saves the results in a CSV file (`3dgs_references.csv`). The file includes abstracts, citation counts, arXiv links, publication venues, and more.
+This command retrieves all papers citing [3D Gaussian Splatting](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/) and saves the results in a CSV file (`3dgs_citations.csv`). The file includes abstracts, citation counts, arXiv links, publication venues, and more.
 
 ## Online Tool
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Widget_Demo.ipynb)<br> 
@@ -55,7 +55,7 @@ For a simple, no-code demo, try the [Colab online tool](https://colab.research.g
 This basic command retrieves all citations and related information (such as abstract, arXiv link, citation count,  venue, etc.) for a given paper and saves it to a CSV file:
 
 ```bash
-scholtrack -p 2cc1d857e86d5152ba7fe6a8355c2a0150cc280a -o 3dgs_references.csv
+scholtrack -p 2cc1d857e86d5152ba7fe6a8355c2a0150cc280a -o 3dgs_citations.csv
 ```
 
 ### Example 1: Fetch Latest Citations to a Paper, Save to TXT
