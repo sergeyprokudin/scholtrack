@@ -1,5 +1,4 @@
-![scholtrack_demo](https://github.com/user-attachments/assets/05360671-9674-498f-87b8-682481f2ad7d)
-
+<img src="https://github.com/user-attachments/assets/05360671-9674-498f-87b8-682481f2ad7d" alt="scholtrack_demo" width="400"/>
 
 # ScholTrack: Automate Finding and Fetching Academic Citations
 
