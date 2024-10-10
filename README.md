@@ -10,17 +10,17 @@
 
 The tool uses the public [Semantic Scholar API](https://www.semanticscholar.org/product/api) to collect citations and extract important details such as titles, abstracts, citation counts, publishing venues, arXiv links, and more. You can save the data in formats like CSV, JSON, or TXT for further analysis. ScholTrack can be used via the [command line interface](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Command_Line_Demo.ipynb) or through a simple [Colab-based online tool](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_Widget_Demo.ipynb).
 
-Use Cases:
+### Use Cases
 
-- **Fetch citations for a single paper**  
+1. **Fetch citations for a single paper**  
    Retrieve all citations for a specified paper and save them to a CSV file.  
    📘 **Demo**: [Fetch citations for 3D Gaussian Splatting (3DGS)](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Demo.ipynb)
 
-- **Retrieve the latest works in a research field**  
+2. **Retrieve the latest works in a research field**  
    Find the most recent papers by collecting citations to a set of seminal works, sorted by publication date.  
    📘 **Demo**: [Fetch the latest works in Novel View Synthesis](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_NVS_Demo.ipynb)
 
-- **Identify papers that apply a specific method in a field**  
+3. **Identify papers that apply a specific method in a field**  
    Find papers that cite multiple key works, showing how a method (X) is applied in a particular field (Y).  
    📘 **Demo**: [Fetch works applying 3DGS in human avatar modeling](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Avatar_Demo.ipynb)
 
