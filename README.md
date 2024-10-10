@@ -12,15 +12,15 @@ The tool uses the public [Semantic Scholar API](https://www.semanticscholar.org/
 
 ### Use Cases
 
-1. **Fetch citations for a single paper**  
+📚  **Fetch citations for a single paper**  
    Retrieve all citations for a specified paper and save them to a CSV file.  
    📘 **Demo**: [Fetch citations for 3D Gaussian Splatting (3DGS)](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Demo.ipynb)
 
-2. **Get the latest works in a research field**  
+🗞️ **Get the latest works in a research field**  
    Find the most recent papers by collecting citations to a set of seminal works, sorted by publication date.  
    📘 **Demo**: [Fetch the latest works in Novel View Synthesis](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_NVS_Demo.ipynb)
 
-3. **Find papers that combine methods X and Y**  
+🧩 **Find papers that combine methods X and Y**  
    Discover papers that cite seminal works from different fields, showcasing studies that integrate methods X and Y.  
    📘 **Demo**: [Fetch papers that combine 3DGS and SMPL for human avatar modeling](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Avatar_Demo.ipynb)
 
