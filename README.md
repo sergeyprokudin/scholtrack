@@ -20,9 +20,9 @@ The tool uses the public [Semantic Scholar API](https://www.semanticscholar.org/
    Find the most recent papers by collecting citations to a set of seminal works, sorted by publication date.  
    📘 **Demo**: [Fetch the latest works in Novel View Synthesis](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_NVS_Demo.ipynb)
 
-3. **Find papers that cite both methods X and Y**  
-   Identify papers that cite multiple seminal works, highlighting studies that combine methods X and Y.  
-   📘 **Demo**: [Fetch papers on 3DGS and SMPL for human avatar modeling](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Avatar_Demo.ipynb)
+3. **Find papers that combine methods X and Y**  
+   Discover papers that cite seminal works from different fields, showcasing studies that integrate methods X and Y.  
+   📘 **Demo**: [Fetch papers that combine 3DGS and SMPL for human avatar modeling](https://colab.research.google.com/github/sergeyprokudin/scholtrack/blob/main/colab/ScholTrack_3DGS_Avatar_Demo.ipynb)
 
 
 ## Installation
